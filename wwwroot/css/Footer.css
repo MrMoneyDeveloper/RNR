@@ -1,0 +1,58 @@
+/* Reset body and html height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Ensure a base font is applied */
+}
+
+/* Container to hold the page content */
+#content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Main content should take all the available space except the footer height */
+#content {
+    flex: 1;
+}
+
+/* Footer styling */
+.footer {
+    padding: 1rem 0;
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    width: 100%;
+    animation: slideUp 0.5s ease-in-out;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+    .footer a:hover {
+        color: #61dafb;
+    }
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

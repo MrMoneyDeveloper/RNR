@@ -1,0 +1,42 @@
+﻿.custom-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #343a40;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+    .navbar-brand img {
+        height: 40px; /* Adjust as needed */
+        width: auto; /* Keeps aspect ratio */
+        transition: transform 0.6s ease;
+    }
+
+        .navbar-brand img:hover {
+            transform: scale(1.5); /* Optional: a slight zoom effect on hover */
+        }
+
+.navbar-links a {
+    margin-left: 1rem;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+    .navbar-links a:hover {
+        color: #61dafb;
+    }
+
+body {
+    padding-top: 70px; /* Adjust this value based on your navbar height */
+}

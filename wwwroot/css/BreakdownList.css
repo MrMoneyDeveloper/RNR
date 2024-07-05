@@ -1,0 +1,96 @@
+﻿/* BreakdownList.css */
+.breakdown-list-container {
+    padding: 20px;
+}
+
+    .breakdown-list-container button {
+        color: #f2f2f2;
+        background-color: #d71516;
+       
+    }
+
+    .breakdown-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        color: #212529; /* Updated color for text */
+    }
+
+        .breakdown-table th, .breakdown-table td {
+            border: 1px solid  #575151;
+            padding: 8px;
+            color: #0d0e0e; /* Updated color for text */
+        }
+
+    .breakdown-table th {
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+
+.breakdown-actions button {
+    background-color: #d71516; /* Updated color */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+    .breakdown-actions button:hover {
+        background-color: #a61011; /* Darker shade of the button color */
+    }
+
+.no-data-message {
+    text-align: center;
+    color: red;
+}
+
+.breakdown-form-wrapper {
+    position: relative;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #212529;
+    display: flex;
+    flex-direction: column;
+    color: #f2f2f2; /* Updated color for text */
+}
+
+.close-form-button {
+    align-self: flex-end;
+    background: #d71516; /* Updated color */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+}
+
+.breakdown-form {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .breakdown-form input,
+    .breakdown-form button {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+        color: #212529; /* Updated color for input text */
+    }
+
+    .breakdown-form button {
+        background-color: #d71516; /* Updated color */
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+        .breakdown-form button:hover {
+            background-color: #a61011; /* Darker shade of the button color */
+        }

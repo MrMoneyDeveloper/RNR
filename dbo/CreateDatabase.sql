@@ -1,0 +1,4 @@
+﻿IF DB_ID('RNRDatabase') IS NULL
+BEGIN
+    EXEC ('CREATE DATABASE RNRDatabase');
+END;

@@ -1,0 +1,61 @@
+﻿.breakdown-form-container {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+    .breakdown-form-container h1 {
+        padding: 30px;
+        color: #b81818;
+    }
+
+    .breakdown-form {
+        background-color: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .breakdown-form input,
+    .breakdown-form button {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: all 0.2s ease-in-out;
+        color: #212529; /* Updated color for input text */
+    }
+
+        .breakdown-form input:focus,
+        .breakdown-form button:focus {
+            border-color: #d71516; /* Updated color */
+            outline: none;
+            box-shadow: 0 0 5px rgba(215, 21, 22, 0.5); /* Updated color */
+        }
+
+    .breakdown-form button {
+        background-color: #d71516; /* Updated color */
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+        .breakdown-form button:hover {
+            background-color: #a61011; /* Darker shade of the button color */
+        }
+
+    .breakdown-form h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.75rem;
+        color: #212529; /* Updated color */
+       
+    }
+
