@@ -8,7 +8,7 @@ const HeroSection = () => {
             <h1>Welcome to the Breakdown Management System</h1>
             <p>Efficiently manage and track vehicle breakdowns with ease.</p>
             <div className="hero-btns">
-                <button className="btns" href="#breakdown-list" >View Breakdowns</button>
+                <a className="btns" href="https://localhost:7124/swagger/index.html">View Breakdowns</a>
             </div>
         </div>
     );

@@ -23,11 +23,23 @@ namespace RNR.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Breakdown>>> GetBreakdowns()
+        public async Task<ActionResult<IEnumerable<Breakdown>>> GetBreakdowns([FromQuery] int page = 1, [FromQuery] int pageSize = 5)
         {
-            _logger.LogInformation("Fetching all breakdowns from the database.");
-            var breakdowns = await _context.Breakdowns.ToListAsync();
+            _logger.LogInformation("Fetching breakdowns from the database.");
+
+            var query = _context.Breakdowns.OrderBy(b => b.BreakdownReference).AsQueryable();
+
+            // Get total count
+            var totalCount = await query.CountAsync();
+
+            // Apply pagination
+            var breakdowns = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+
             _logger.LogInformation($"Fetched {breakdowns.Count} breakdowns.");
+
+            // Add total count to response headers
+            Response.Headers.Add("X-Total-Count", totalCount.ToString());
+
             return Ok(breakdowns);
         }
 

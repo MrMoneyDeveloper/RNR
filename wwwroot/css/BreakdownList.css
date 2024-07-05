@@ -94,3 +94,31 @@
         .breakdown-form button:hover {
             background-color: #a61011; /* Darker shade of the button color */
         }
+
+/* Add this to BreakdownList.css */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+    .pagination a {
+        margin: 0 5px;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        color: #212529;
+        text-decoration: none;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .pagination a:hover {
+            background-color: #d71516;
+            color: white;
+        }
+
+    .pagination .active a {
+        background-color: #d71516;
+        color: white;
+        border-color: #d71516;
+    }

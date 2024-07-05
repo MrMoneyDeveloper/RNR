@@ -1,6 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import BreakdownForm from './BreakdownForm';
+import ReactPaginate from 'react-paginate';
 import '../wwwroot/css/BreakdownList.css';
 
 const BreakdownList = () => {
@@ -8,24 +9,28 @@ const BreakdownList = () => {
     const [selectedBreakdown, setSelectedBreakdown] = useState(null);
     const [error, setError] = useState(null);
     const [isFormVisible, setIsFormVisible] = useState(false);
+    const [pageCount, setPageCount] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const pageSize = 5;
 
     useEffect(() => {
-        const fetchBreakdowns = async () => {
-            try {
-                const response = await axios.get('/api/breakdowns');
-                if (response.data && response.data.$values && response.data.$values.length === 0) {
-                    setBreakdowns([]);
-                } else if (response.data && response.data.$values) {
-                    setBreakdowns(response.data.$values);
-                } else {
-                    setBreakdowns([]);
-                }
-            } catch (error) {
-                setError('Error fetching breakdowns');
-            }
-        };
-        fetchBreakdowns();
-    }, []);
+        fetchBreakdowns(currentPage);
+    }, [currentPage]);
+
+    const fetchBreakdowns = async (page) => {
+        try {
+            const response = await axios.get(`/api/breakdowns?page=${page}&pageSize=${pageSize}`);
+            setBreakdowns(response.data.$values || response.data);
+            const totalCount = parseInt(response.headers['x-total-count'], 10);
+            setPageCount(Math.ceil(totalCount / pageSize));
+        } catch (error) {
+            setError('Error fetching breakdowns');
+        }
+    };
+
+    const handlePageClick = (data) => {
+        setCurrentPage(data.selected + 1);
+    };
 
     const handleEdit = (breakdown) => {
         setSelectedBreakdown(breakdown);
@@ -43,7 +48,7 @@ const BreakdownList = () => {
 
     return (
         <div className="breakdown-list-container">
-            <button onClick={handleCreate}>Create New Breakdown</button>
+            <button onClick={handleCreate} style={{ backgroundColor: '#d71516', color: '#ffffff' }}>Create New Breakdown</button>
             {isFormVisible && (
                 <div className="breakdown-form-wrapper">
                     <button onClick={handleCloseForm} className="close-form-button">Close</button>
@@ -72,7 +77,7 @@ const BreakdownList = () => {
                                 <td>{breakdown.registrationNumber}</td>
                                 <td>{new Date(breakdown.breakdownDate).toLocaleString()}</td>
                                 <td className="breakdown-actions">
-                                    <button onClick={() => handleEdit(breakdown)}>Edit</button>
+                                    <button onClick={() => handleEdit(breakdown)} style={{ backgroundColor: '#d71516', color: '#ffffff' }}>Edit</button>
                                 </td>
                             </tr>
                         ))
@@ -83,6 +88,18 @@ const BreakdownList = () => {
                     )}
                 </tbody>
             </table>
+            <ReactPaginate
+                previousLabel={'previous'}
+                nextLabel={'next'}
+                breakLabel={'...'}
+                breakClassName={'break-me'}
+                pageCount={pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageClick}
+                containerClassName={'pagination'}
+                activeClassName={'active'}
+            />
         </div>
     );
 };
