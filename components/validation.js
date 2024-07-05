@@ -14,7 +14,7 @@ export const validateFormData = async (formData, breakdown) => {
     if (!breakdown && formData.breakdownReference) {
         try {
             const response = await axios.get(`/api/breakdowns/checkReference/${formData.breakdownReference}`);
-            if (response.data) errors.breakdownReference = 'Breakdown reference already exists';
+            if (response.data) errors.breakdownReference = 'Breakdown reference already exists!!!';
         } catch (error) {
             console.error('Error checking breakdown reference:', error);
             errors.breakdownReference = 'Error checking breakdown reference';

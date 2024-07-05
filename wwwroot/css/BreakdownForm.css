@@ -59,3 +59,10 @@
        
     }
 
+/* Add this to your CSS file, e.g., BreakdownForm.css */
+.error {
+    color: #d71516;
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
