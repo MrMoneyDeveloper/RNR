@@ -1,4 +1,3 @@
-
 # Breakdown Management System
 
 ## Overview
@@ -13,6 +12,7 @@ The Breakdown Management System is designed to help manage and track vehicle bre
 - **Pagination:** Efficiently manage and navigate through large lists of breakdowns with pagination.
 - **Validation:** Ensure no fields are left blank and reference numbers are unique during creation and updates.
 - **Request and Response Logging:** Log all incoming requests and outgoing responses for better debugging and monitoring.
+- **Landing Page Components:** A responsive landing page with a navigation bar, hero section, animated background, feature list, and footer built in React.
 
 ## Technologies Used
 
@@ -42,8 +42,26 @@ The Breakdown Management System is designed to help manage and track vehicle bre
 │   ├── _ViewImports.cshtml
 │   ├── _ViewStart.cshtml
 │   └── Index.cshtml
+├── Properties
+│   └── launchSettings.json
+├── components
+│   ├── AnimatedBackground.js
+│   ├── BreakdownForm.js
+│   ├── BreakdownList.js
+│   ├── FeaturesSection.js
+│   ├── Footer.js
+│   ├── HeroSection.js
+│   ├── LandingPage.js
+│   ├── MyComponent.js
+│   ├── NavBar.js
+│   └── validation.js
+├── dbo
+│   ├── CreateDatabase.sql
+│   ├── CreateTable.sql
+│   └── PopulateData.sql
 ├── wwwroot
 │   ├── css
+│   │   ├── AnimatedBackground.css
 │   │   ├── BreakdownForm.css
 │   │   ├── BreakdownList.css
 │   │   ├── CustomNavBar.css
@@ -64,9 +82,18 @@ The Breakdown Management System is designed to help manage and track vehicle bre
 │           ├── Footer.js
 │           ├── HeroSection.js
 │           └── AnimatedBackground.js
+│   │   ├── RNR_Logo.png
+│   │   └── hero-bg.jpg
+│   ├── js
+│   │   └── bundle.js
+│   └── lib
+│       └── bootstrap
 ├── Program.cs
 ├── Startup.cs
 └── README.md
+├── index.js
+├── package.json
+└── RNR.csproj
 ```
 
 ## Getting Started
@@ -81,17 +108,40 @@ The Breakdown Management System is designed to help manage and track vehicle bre
 1. **Clone the repository.**
 
 2. **Set up the backend:**
+2. **Install dependencies.**
+
+   ```bash
+   npm install
+   ```
 
    - Update the connection string in `appsettings.json`.
    - Ensure SQL Server is running and accessible.
+3. **Configure the backend (optional):**
 
 3. **Initialize the database:**
+   - Update the connection string in `appsettings.json` if your SQL Server instance differs from the default LocalDB.
 
    The database is initialized automatically using the `DatabaseInitializer` class. It runs the SQL scripts located in the `dbo` directory to create the database, tables, and populate initial data.
+4. **Initialize the database:**
+
+   The `DatabaseInitializer` class runs at startup and recreates the database using the scripts under the `dbo` directory. Existing data is removed each time the application starts.
 
 ### Running the Application
 
 Once both the backend and frontend are set up, apon running the solution it will navigate to `https://localhost:7124` to view the application.
+1. Build the React bundle:
+
+   ```bash
+   npm run build
+   ```
+
+2. Start the ASP.NET Core application:
+
+   ```bash
+   dotnet run
+   ```
+
+   The application launches on `https://localhost:7124` by default.
 
 ## API Endpoints
 
@@ -134,6 +184,5 @@ Automatically initializes the database using SQL scripts located in the `dbo` di
 ## Contributing
 
 Please provide feedback if posssible as i want to improve myself and the code i produce
-
-
+Please provide feedback if possible as I want to improve myself and the code I produce.
 
